@@ -14,7 +14,7 @@ func (m *Meld) IsValidSet() bool {
 	}
 
 	colors := make(map[Color]bool)
-	number := -1
+	var number TileNumber = -1
 
 	for _, tile := range m.Tiles {
 		if tile.IsJoker {
@@ -76,7 +76,7 @@ func (m *Meld) IsValidRun() bool {
 	// 連続性チェック（ジョーカーで埋められるか）
 	gaps := 0
 	for i := 0; i < len(nonJokers)-1; i++ {
-		diff := nonJokers[i+1].Number - nonJokers[i].Number - 1
+		diff := int(nonJokers[i+1].Number - nonJokers[i].Number - 1)
 		if diff < 0 {
 			return false // 重複
 		}

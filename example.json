@@ -1,20 +1,4 @@
 {
-  "board": [
-    [
-      {"number": 1, "color": "R"},
-      {"number": 2, "color": "R"},
-      {"number": 3, "color": "R"}
-    ],
-    [
-      {"number": 7, "color": "R"},
-      {"number": 7, "color": "B"},
-      {"number": 7, "color": "Y"}
-    ]
-  ],
-  "hand": [
-    {"number": 5, "color": "B"},
-    {"number": 6, "color": "B"},
-    {"number": 7, "color": "B"},
-    {"joker": true}
-  ]
+  "board": [["R1","R2","R3"],["R7","B7","Y7"]],
+  "hand": ["B5","B6","B7","JK"]
 }
