@@ -1,0 +1,20 @@
+{
+  "board": [
+    [
+      {"number": 1, "color": "R"},
+      {"number": 2, "color": "R"},
+      {"number": 3, "color": "R"}
+    ],
+    [
+      {"number": 7, "color": "R"},
+      {"number": 7, "color": "B"},
+      {"number": 7, "color": "Y"}
+    ]
+  ],
+  "hand": [
+    {"number": 5, "color": "B"},
+    {"number": 6, "color": "B"},
+    {"number": 7, "color": "B"},
+    {"joker": true}
+  ]
+}
