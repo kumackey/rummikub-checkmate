@@ -60,7 +60,7 @@ func LoadGameState(filename string) (*GameState, error) {
 			}
 			tiles = append(tiles, tile)
 		}
-		gs.Board.Melds = append(gs.Board.Melds, Meld{Tiles: tiles})
+		gs.Board.Melds = append(gs.Board.Melds, Meld(tiles))
 	}
 
 	// Hand変換

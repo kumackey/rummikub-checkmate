@@ -309,7 +309,7 @@ func SolveCheckmate(board Board, hand Hand) (bool, []Meld) {
 	var allTiles []Tile
 	var id TileID = 0
 	for _, meld := range board.Melds {
-		for _, tile := range meld.Tiles {
+		for _, tile := range meld {
 			tile.ID = id
 			allTiles = append(allTiles, tile)
 			id++
@@ -338,7 +338,7 @@ func SolveCheckmate(board Board, hand Hand) (bool, []Meld) {
 	// 解をMeldに変換
 	var melds []Meld
 	for _, candidate := range solution {
-		melds = append(melds, Meld{Tiles: candidate})
+		melds = append(melds, Meld(candidate))
 	}
 	return true, melds
 }

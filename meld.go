@@ -2,21 +2,18 @@ package main
 
 import "fmt"
 
-// Meld は場に出ているタイルの組み合わせ（セットまたはラン）
-type Meld struct {
-	Tiles []Tile
-}
+type Meld []Tile
 
-// IsValidSet は同じ数字で異なる色の組み合わせかチェック
-func (m *Meld) IsValidSet() bool {
-	if len(m.Tiles) < 3 || len(m.Tiles) > 4 {
+// isValidSet は同じ数字で異なる色の組み合わせかチェック
+func (m Meld) isValidSet() bool {
+	if len(m) < 3 || len(m) > 4 {
 		return false
 	}
 
 	colors := make(map[Color]bool)
 	var number TileNumber = -1
 
-	for _, tile := range m.Tiles {
+	for _, tile := range m {
 		if tile.IsJoker {
 			continue
 		}
@@ -33,9 +30,9 @@ func (m *Meld) IsValidSet() bool {
 	return true
 }
 
-// IsValidRun は同じ色で連続する数字の組み合わせかチェック
-func (m *Meld) IsValidRun() bool {
-	if len(m.Tiles) < 3 {
+// isValidRun は同じ色で連続する数字の組み合わせかチェック
+func (m Meld) isValidRun() bool {
+	if len(m) < 3 {
 		return false
 	}
 
@@ -44,7 +41,7 @@ func (m *Meld) IsValidRun() bool {
 	jokerCount := 0
 	var runColor Color
 
-	for _, tile := range m.Tiles {
+	for _, tile := range m {
 		if tile.IsJoker {
 			jokerCount++
 		} else {
@@ -86,14 +83,13 @@ func (m *Meld) IsValidRun() bool {
 	return gaps <= jokerCount
 }
 
-// IsValid はMeldが有効かどうかチェック
-func (m *Meld) IsValid() bool {
-	return m.IsValidSet() || m.IsValidRun()
+func (m Meld) IsValid() bool {
+	return m.isValidSet() || m.isValidRun()
 }
 
-func (m *Meld) String() string {
+func (m Meld) String() string {
 	result := "["
-	for i, tile := range m.Tiles {
+	for i, tile := range m {
 		if i > 0 {
 			result += " "
 		}
